@@ -1,4 +1,4 @@
-name: lab21
+name: 10lab
 channels:
   - defaults
 dependencies:
@@ -7,5 +7,4 @@ dependencies:
  - isort
  - black
  - pre-commit
- - click
 
