@@ -23,7 +23,6 @@ class Fraction:
             result.integer_part[i] = total % 10
             carry = total // 10
 
-        # Начнем сложение дробной части с самого начала списка
         for i in range(self.size):
             total = self.decimal_part[i] + other.decimal_part[i] + carry
             result.decimal_part[i] = total % 10
@@ -44,7 +43,6 @@ class Fraction:
                 borrow = 0
             result.integer_part[i] = sub
 
-        # Вычитаем дробные части
         for i in range(self.size):
             sub = self.decimal_part[i] - other.decimal_part[i] - borrow
             if sub < 0:
@@ -56,7 +54,6 @@ class Fraction:
 
         return result
 
-    # Пропущено умножение и сравнение...
 
     def __str__(self):
         integer_str = "".join(map(str, reversed(self.integer_part)))
@@ -64,7 +61,6 @@ class Fraction:
         return f"{integer_str}.{decimal_str}"
 
 
-# Пример использования
 fraction1 = Fraction(5)
 fraction1.integer_part = [1, 2, 3, 4, 5]
 fraction1.decimal_part = [6, 7, 8, 9, 0]
