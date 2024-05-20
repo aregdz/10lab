@@ -1,3 +1,6 @@
+# реализовать через len 14 и 17 
+# доавить main
+
 class Fraction:
     MAX_SIZE = 100
 
