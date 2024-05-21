@@ -1,5 +1,15 @@
-# реализовать через len 14 и 17 
-# доавить main
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# Создать класс Fraction для работы с беззнаковыми дробными десятичными числами. Число
+# должно быть представлено двумя списками типа int: целая и дробная часть, каждый элемент
+# — десятичная цифра. Для целой части младшая цифра имеет меньший индекс, для дробной
+# части старшая цифра имеет меньший индекс (десятые — в нулевом элементе, сотые — в
+# первом, и т. д.). Реальный размер списоков задается как аргумент конструктора инициализации.
+# Реализовать арифметические операции сложения, вычитания и операции сравнения.
+
+#  добавить строку: "if __name__ == "__main__":"
+
 
 class Fraction:
     MAX_SIZE = 100
@@ -26,6 +36,7 @@ class Fraction:
             result.integer_part[i] = total % 10
             carry = total // 10
 
+        # Начнем сложение дробной части с самого начала списка
         for i in range(self.size):
             total = self.decimal_part[i] + other.decimal_part[i] + carry
             result.decimal_part[i] = total % 10
@@ -46,6 +57,7 @@ class Fraction:
                 borrow = 0
             result.integer_part[i] = sub
 
+        # Вычитаем дробные части
         for i in range(self.size):
             sub = self.decimal_part[i] - other.decimal_part[i] - borrow
             if sub < 0:
@@ -57,21 +69,24 @@ class Fraction:
 
         return result
 
+    # Пропущено умножение и сравнение...
 
     def __str__(self):
         integer_str = "".join(map(str, reversed(self.integer_part)))
         decimal_str = "".join(map(str, self.decimal_part))
         return f"{integer_str}.{decimal_str}"
 
+if __name__ == "__main__":
 
-fraction1 = Fraction(5)
-fraction1.integer_part = [1, 2, 3, 4, 5]
-fraction1.decimal_part = [6, 7, 8, 9, 0]
-fraction2 = Fraction(5)
-fraction2.integer_part = [5, 4, 3, 2, 1]
-fraction2.decimal_part = [0, 9, 8, 7, 6]
+    # Пример использования
+    fraction1 = Fraction(5)
+    fraction1.integer_part = [1, 2, 3, 4, 5]
+    fraction1.decimal_part = [6, 7, 8, 9, 0]
+    fraction2 = Fraction(5)
+    fraction2.integer_part = [5, 4, 3, 2, 1]
+    fraction2.decimal_part = [0, 9, 8, 7, 6]
 
-result_add = fraction1 + fraction2
-result_sub = fraction1 - fraction2
-print(f"Сумма: {result_add}")
-print(f"Результат умножения:: {result_sub}")
+    result_add = fraction1 + fraction2
+    result_sub = fraction1 - fraction2
+    print(f"Сумма: {result_add}")
+    print(f"Результат умножения:: {result_sub}")
